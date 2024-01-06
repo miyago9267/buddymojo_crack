@@ -14,6 +14,9 @@
 
 同時我注意到，答題的同時答案就會秀出來了，所以我就想說，這個網頁應該是沒有做太多安全防護，所以就開始挖起來了。
 
+## 目標網站
+[XX的永遠的最好的夥伴](https://cn.buddymojo.com)
+
 ## 分析
 1. 打開Devlopment Tools，稍微翻一下script欄位，發現有兩坨有用的資訊
     1. 這邊存了一些還不知道是啥的變數。
@@ -33,7 +36,7 @@ fetch('/api/v1/quiz/'+quizId+'?userQuizId='+userQuizId+'&type=friend&stats=1')
 .catch(err => console.log(err));
 ```
 5. 然後我們就可以拿到所有的答案了，接著我們可以送出一次看看submit的API長怎樣。如果不想浪費一次扣打，也可以跟我一樣直接翻code，我猜大概是沒渲染好，或者他根本沒藏，反正code是被我看光光了，直接就挖出了submit用的API。
-6. 接著拿到API之後，我們仿照Local Storage裡面答案的格式做一下POST DATA(有點不一樣，詳情看下面的圖片)，把答案塞進去POST一下API，就可以拿滿分了。
+6. 接著拿到[API](https://cn.buddymojo.com/api/v1/quiz/61?userQuizId=2932231&type=friend&stats=1)之後，我們仿照Local Storage裡面答案的格式做一下POST DATA(有點不一樣，詳情看下面的圖片)，把答案塞進去POST一下API，就可以拿滿分了。
     ![Alt text](src/postdata.png)
 7. 然後就可以拿去騙朋友了(X)
 
